@@ -1,3 +1,3 @@
 RectangularSheet
 
-Test task that solve the task "Cutting stock problem"
+Test task that solve the "Cutting stock problem"
