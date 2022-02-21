@@ -38,10 +38,10 @@ namespace RectangularSheet.WF
         private void buttonDarw_Click(object sender, EventArgs e)
         {
             if (
-                textBoxWidthSheet.Text.Length   < 1 ||
-                textBoxHeightSheet.Text.Length  < 1 ||
-                textBoxWidthDetail.Text.Length  < 1 ||
-                textBoxHeightDetail.Text.Length < 1
+                string.IsNullOrEmpty(textBoxWidthSheet.Text)  ||
+                string.IsNullOrEmpty(textBoxHeightSheet.Text) ||
+                string.IsNullOrEmpty(textBoxWidthDetail.Text) ||
+                string.IsNullOrEmpty(textBoxHeightDetail.Text)
                 )
             {
                 MessageBox.Show("Неверно указаны размеры");
