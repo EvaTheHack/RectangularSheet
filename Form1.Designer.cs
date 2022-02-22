@@ -35,16 +35,13 @@ namespace RectangularSheet.WF
             this.textBoxWidthSheet = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxDetails = new System.Windows.Forms.GroupBox();
+            this.buttonRemoveRow = new System.Windows.Forms.Button();
+            this.gridDetails = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBoxCountDetails = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxHeightDetail = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxWidthDetail = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panelSheet = new System.Windows.Forms.Panel();
             this.groupBoxSheet.SuspendLayout();
             this.groupBoxDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxSheet
@@ -96,80 +93,48 @@ namespace RectangularSheet.WF
             // 
             // groupBoxDetails
             // 
-            this.groupBoxDetails.Controls.Add(this.button2);
-            this.groupBoxDetails.Controls.Add(this.textBoxCountDetails);
-            this.groupBoxDetails.Controls.Add(this.label4);
-            this.groupBoxDetails.Controls.Add(this.textBoxHeightDetail);
-            this.groupBoxDetails.Controls.Add(this.label5);
-            this.groupBoxDetails.Controls.Add(this.textBoxWidthDetail);
-            this.groupBoxDetails.Controls.Add(this.label6);
-            this.groupBoxDetails.Location = new System.Drawing.Point(12, 136);
+            this.groupBoxDetails.Controls.Add(this.buttonRemoveRow);
+            this.groupBoxDetails.Controls.Add(this.gridDetails);
+            this.groupBoxDetails.Location = new System.Drawing.Point(12, 146);
             this.groupBoxDetails.Name = "groupBoxDetails";
-            this.groupBoxDetails.Size = new System.Drawing.Size(288, 199);
+            this.groupBoxDetails.Size = new System.Drawing.Size(288, 256);
             this.groupBoxDetails.TabIndex = 7;
             this.groupBoxDetails.TabStop = false;
             this.groupBoxDetails.Text = "Детали";
             // 
+            // buttonRemoveRow
+            // 
+            this.buttonRemoveRow.Location = new System.Drawing.Point(72, 205);
+            this.buttonRemoveRow.Name = "buttonRemoveRow";
+            this.buttonRemoveRow.Size = new System.Drawing.Size(113, 29);
+            this.buttonRemoveRow.TabIndex = 9;
+            this.buttonRemoveRow.Text = "Удалить";
+            this.buttonRemoveRow.UseVisualStyleBackColor = true;
+            this.buttonRemoveRow.Click += new System.EventHandler(this.buttonRemoveRow_Click);
+            // 
+            // gridDetails
+            // 
+            this.gridDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDetails.Location = new System.Drawing.Point(11, 27);
+            this.gridDetails.Name = "gridDetails";
+            this.gridDetails.RowHeadersVisible = false;
+            this.gridDetails.RowHeadersWidth = 51;
+            this.gridDetails.RowTemplate.Height = 29;
+            this.gridDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.gridDetails.Size = new System.Drawing.Size(271, 172);
+            this.gridDetails.TabIndex = 0;
+            this.gridDetails.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.gridDetails_EditingControlShowing);
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(68, 140);
+            this.button2.Location = new System.Drawing.Point(84, 408);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 29);
             this.button2.TabIndex = 6;
             this.button2.Text = "Расчет";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.buttonDarw_Click);
-            // 
-            // textBoxCountDetails
-            // 
-            this.textBoxCountDetails.Location = new System.Drawing.Point(157, 107);
-            this.textBoxCountDetails.Name = "textBoxCountDetails";
-            this.textBoxCountDetails.Size = new System.Drawing.Size(125, 27);
-            this.textBoxCountDetails.TabIndex = 5;
-            this.textBoxCountDetails.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCountDetails_KeyPress);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Кол-во деталей";
-            // 
-            // textBoxHeightDetail
-            // 
-            this.textBoxHeightDetail.Location = new System.Drawing.Point(157, 74);
-            this.textBoxHeightDetail.Name = "textBoxHeightDetail";
-            this.textBoxHeightDetail.Size = new System.Drawing.Size(125, 27);
-            this.textBoxHeightDetail.TabIndex = 3;
-            this.textBoxHeightDetail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxHeightDetail_KeyPress);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 77);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Высота";
-            // 
-            // textBoxWidthDetail
-            // 
-            this.textBoxWidthDetail.Location = new System.Drawing.Point(157, 41);
-            this.textBoxWidthDetail.Name = "textBoxWidthDetail";
-            this.textBoxWidthDetail.Size = new System.Drawing.Size(125, 27);
-            this.textBoxWidthDetail.TabIndex = 1;
-            this.textBoxWidthDetail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWidthDetail_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 44);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Ширина";
             // 
             // panelSheet
             // 
@@ -187,6 +152,7 @@ namespace RectangularSheet.WF
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 583);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panelSheet);
             this.Controls.Add(this.groupBoxDetails);
             this.Controls.Add(this.groupBoxSheet);
@@ -198,7 +164,7 @@ namespace RectangularSheet.WF
             this.groupBoxSheet.ResumeLayout(false);
             this.groupBoxSheet.PerformLayout();
             this.groupBoxDetails.ResumeLayout(false);
-            this.groupBoxDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,15 +179,11 @@ namespace RectangularSheet.WF
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBoxDetails;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBoxCountDetails;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxHeightDetail;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxWidthDetail;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panelSheet;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton radioButtonGrid;
+        private System.Windows.Forms.DataGridView gridDetails;
+        private System.Windows.Forms.Button buttonRemoveRow;
     }
 }
 
