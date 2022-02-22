@@ -1,4 +1,5 @@
 ﻿using RectangularSheet.Models;
+using RectangularSheet.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,11 +10,11 @@ namespace RectangularSheet.WF
 {
     public partial class Form1 : Form
     {
-        private readonly List<Detail> _details = new();
+        private readonly List<DetailDto> _details = new();
         public Form1()
         {
             InitializeComponent();
-            var bindingList = new BindingList<Detail>(_details);
+            var bindingList = new BindingList<DetailDto>(_details);
             var source = new BindingSource(bindingList, null);
             gridDetails.DataSource = source;
         }
@@ -31,18 +32,14 @@ namespace RectangularSheet.WF
             var width = Convert.ToInt32(textBoxWidthSheet.Text);
             var height = Convert.ToInt32(textBoxHeightSheet.Text);
 
+            var details = _details.Map();
+
             var panelDrawer = new PanelDrawer(panelSheet, width, height);
-            var detailDrawer = new DetailDrawer(panelSheet, width, height, _details);
+            var detailDrawer = new DetailDrawer(panelSheet, width, height, details);
 
             try
             {
-                foreach (var d in _details)
-                {
-                    for (int i = 0; i < d.Count; i++)
-                    {
-                        detailDrawer.Draw(d.Width, d.Height);
-                    }
-                }
+                detailDrawer.Draw(details);        
                 panelDrawer.DrawPerimeter();
             }
             catch (Exception ex)
@@ -85,6 +82,10 @@ namespace RectangularSheet.WF
 
         private void Column_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == '\b')
+            {
+                return;
+            }
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
