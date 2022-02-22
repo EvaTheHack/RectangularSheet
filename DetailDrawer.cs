@@ -38,7 +38,21 @@ namespace RectangularSheet.WF
 
         private int MaxSide => Height > Width ? Height : Width;
 
-        public void Draw(int detailWidth, int detailHeight)
+        public void Draw(List<Detail> details)
+        {
+            foreach (var d in details)
+            {
+                for (int i = 0; i < d.Count; i++)
+                {
+                    DrawDetail(d.Width, d.Height);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Draw detail in panel
+        /// </summary>
+        private void DrawDetail(int detailWidth, int detailHeight)
         {
             for (int i = 0; i < Height; i++)
             {
@@ -75,6 +89,9 @@ namespace RectangularSheet.WF
             }
         }
 
+        /// <summary>
+        /// Check if vertically square for details is free
+        /// </summary>
         private bool IsSquareFreeVertically(int x, int y, int[,] sheet, int detailWidth, int detailHeight)
         {
             try
@@ -90,6 +107,9 @@ namespace RectangularSheet.WF
             }
         }
 
+        /// <summary>
+        /// Check if horizontally square for details is free
+        /// </summary>
         private bool IsSquareFreeHorizontally(int x, int y, int[,] sheet, int detailWidth, int detailHeight)
         {
             try
@@ -105,6 +125,9 @@ namespace RectangularSheet.WF
             }
         }
 
+        /// <summary>
+        /// Fill array horizontally for further drawing by coordinates 
+        /// </summary>
         private void FillHorizontally(int x, int y, int[,] sheet, int detailWidth, int detailHeight)
         {
             for (int i = x; i < x + detailHeight; i++)
@@ -116,6 +139,9 @@ namespace RectangularSheet.WF
             }
         }
 
+        /// <summary>
+        /// Fill array vertically for further drawing by coordinates 
+        /// </summary>
         private void FillVertically(int x, int y, int[,] sheet, int detailWidth, int detailHeight)
         {
             for (int i = x; i < x + detailWidth; i++)
@@ -141,6 +167,9 @@ namespace RectangularSheet.WF
                     );
         }
 
+        /// <summary>
+        /// Method allow validate filling of details
+        /// </summary>
         private void ValidateFilling(List<Detail> details)
         {
             var tempSheet = new int[Height, Width];
@@ -161,6 +190,9 @@ namespace RectangularSheet.WF
             return;
         }
 
+        /// <summary>
+        /// Fill temporary array
+        /// </summary>
         private void Fill(ref int tempDetails, int[,] tempSheet, int detailWidth, int detailHeight)
         {
             for (int i = 0; i < Height; i++)
