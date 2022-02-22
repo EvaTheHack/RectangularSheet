@@ -52,6 +52,10 @@ namespace RectangularSheet.WF
         {
             try
             {
+                if(gridDetails.Rows.Count == 1)
+                {
+                    throw new Exception("Нельзя удалить единственную строку");
+                }
                 if (gridDetails.CurrentCell == null)
                 {
                     throw new Exception("Не выбрана строка");
@@ -82,10 +86,6 @@ namespace RectangularSheet.WF
 
         private void Column_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\b')
-            {
-                return;
-            }
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
