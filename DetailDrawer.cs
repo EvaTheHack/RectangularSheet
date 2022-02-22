@@ -94,12 +94,21 @@ namespace RectangularSheet.WF
         /// </summary>
         private bool IsSquareFreeVertically(int x, int y, int[,] sheet, int detailWidth, int detailHeight)
         {
+            var maxWidth = x + detailWidth;
+            var maxHeight = y + detailHeight;
             try
             {
-                return sheet[x, y] == 0 &&
-                       sheet[x, y + detailHeight - 1] == 0 &&
-                       sheet[x + detailWidth - 1, y] == 0 &&
-                       sheet[x + detailWidth - 1, y + detailHeight - 1] == 0;
+                for (int i = x; i < maxWidth; i++)
+                {
+                    for (int j = y; j < maxHeight; j++)
+                    {
+                        if(sheet[i, j] != 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
             }
             catch
             {
@@ -112,12 +121,21 @@ namespace RectangularSheet.WF
         /// </summary>
         private bool IsSquareFreeHorizontally(int x, int y, int[,] sheet, int detailWidth, int detailHeight)
         {
+            var maxWidth = y + detailWidth;
+            var maxHeight = x + detailHeight;
             try
             {
-                return sheet[x, y] == 0 &&
-                       sheet[x, y + detailWidth - 1] == 0 &&
-                       sheet[x + detailHeight - 1, y] == 0 &&
-                       sheet[x + detailHeight - 1, y + detailWidth - 1] == 0;
+                for (int i = x; i < maxHeight; i++)
+                {
+                    for (int j = y; j < maxWidth; j++)
+                    {
+                        if (sheet[i, j] != 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
             }
             catch
             {
@@ -178,7 +196,7 @@ namespace RectangularSheet.WF
             {
                 for (int i = 0; i < d.Count; i++)
                 {
-                    Fill(ref tempDetails, tempSheet, d.Width, d.Height);
+                    Fill(ref tempDetails, ref tempSheet, d.Width, d.Height);
                 }
             }
 
@@ -193,13 +211,13 @@ namespace RectangularSheet.WF
         /// <summary>
         /// Fill temporary array
         /// </summary>
-        private void Fill(ref int tempDetails, int[,] tempSheet, int detailWidth, int detailHeight)
+        private void Fill(ref int tempDetails, ref int[,] tempSheet, int detailWidth, int detailHeight)
         {
             for (int i = 0; i < Height; i++)
             {
                 for (int j = 0; j < Width; j++)
                 {
-                    if (_sheet[i, j] != 0)
+                    if (tempSheet[i, j] != 0)
                     {
                         continue;
                     }
