@@ -52,14 +52,14 @@ namespace RectangularSheet.WF
             this.groupBoxSheet.Controls.Add(this.label1);
             this.groupBoxSheet.Location = new System.Drawing.Point(12, 12);
             this.groupBoxSheet.Name = "groupBoxSheet";
-            this.groupBoxSheet.Size = new System.Drawing.Size(363, 118);
+            this.groupBoxSheet.Size = new System.Drawing.Size(325, 118);
             this.groupBoxSheet.TabIndex = 0;
             this.groupBoxSheet.TabStop = false;
             this.groupBoxSheet.Text = "Лист";
             // 
             // textBoxHeightSheet
             // 
-            this.textBoxHeightSheet.Location = new System.Drawing.Point(232, 74);
+            this.textBoxHeightSheet.Location = new System.Drawing.Point(183, 70);
             this.textBoxHeightSheet.Name = "textBoxHeightSheet";
             this.textBoxHeightSheet.Size = new System.Drawing.Size(125, 27);
             this.textBoxHeightSheet.TabIndex = 3;
@@ -76,7 +76,7 @@ namespace RectangularSheet.WF
             // 
             // textBoxWidthSheet
             // 
-            this.textBoxWidthSheet.Location = new System.Drawing.Point(232, 41);
+            this.textBoxWidthSheet.Location = new System.Drawing.Point(183, 37);
             this.textBoxWidthSheet.Name = "textBoxWidthSheet";
             this.textBoxWidthSheet.Size = new System.Drawing.Size(125, 27);
             this.textBoxWidthSheet.TabIndex = 1;
@@ -97,7 +97,7 @@ namespace RectangularSheet.WF
             this.groupBoxDetails.Controls.Add(this.gridDetails);
             this.groupBoxDetails.Location = new System.Drawing.Point(12, 146);
             this.groupBoxDetails.Name = "groupBoxDetails";
-            this.groupBoxDetails.Size = new System.Drawing.Size(357, 246);
+            this.groupBoxDetails.Size = new System.Drawing.Size(325, 246);
             this.groupBoxDetails.TabIndex = 7;
             this.groupBoxDetails.TabStop = false;
             this.groupBoxDetails.Text = "Детали";
@@ -116,15 +116,15 @@ namespace RectangularSheet.WF
             // 
             this.gridDetails.AllowUserToResizeColumns = false;
             this.gridDetails.AllowUserToResizeRows = false;
-            this.gridDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.gridDetails.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.gridDetails.ColumnHeadersHeight = 29;
             this.gridDetails.Location = new System.Drawing.Point(11, 27);
             this.gridDetails.Name = "gridDetails";
             this.gridDetails.RowHeadersVisible = false;
             this.gridDetails.RowHeadersWidth = 51;
             this.gridDetails.RowTemplate.Height = 29;
-            this.gridDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gridDetails.Size = new System.Drawing.Size(340, 172);
+            this.gridDetails.Size = new System.Drawing.Size(297, 172);
             this.gridDetails.TabIndex = 0;
             this.gridDetails.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.GridDetails_EditingControlShowing);
             // 
@@ -143,17 +143,17 @@ namespace RectangularSheet.WF
             this.panelSheet.AutoScroll = true;
             this.panelSheet.AutoSize = true;
             this.panelSheet.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panelSheet.Location = new System.Drawing.Point(391, 23);
+            this.panelSheet.Location = new System.Drawing.Point(412, 23);
             this.panelSheet.Name = "panelSheet";
             this.panelSheet.Padding = new System.Windows.Forms.Padding(10);
-            this.panelSheet.Size = new System.Drawing.Size(461, 445);
+            this.panelSheet.Size = new System.Drawing.Size(440, 404);
             this.panelSheet.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 499);
+            this.ClientSize = new System.Drawing.Size(877, 449);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panelSheet);
             this.Controls.Add(this.groupBoxDetails);
