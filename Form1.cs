@@ -18,22 +18,11 @@ namespace RectangularSheet.WF
             gridDetails.DataSource = source;
         }
 
-
-        private void textBoxWidthSheet_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void textBoxHeightSheet_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void buttonDarw_Click(object sender, EventArgs e)
+        private void ButtonDraw_Click(object sender, EventArgs e)
         {
             if (
-                string.IsNullOrEmpty(textBoxWidthSheet.Text)  ||
-                string.IsNullOrEmpty(textBoxHeightSheet.Text) 
+                string.IsNullOrEmpty(textBoxWidthSheet.Text) ||
+                string.IsNullOrEmpty(textBoxHeightSheet.Text)
                 )
             {
                 MessageBox.Show("Неверно указаны размеры");
@@ -41,7 +30,7 @@ namespace RectangularSheet.WF
             }
             var width = Convert.ToInt32(textBoxWidthSheet.Text);
             var height = Convert.ToInt32(textBoxHeightSheet.Text);
-            
+
             var panelDrawer = new PanelDrawer(panelSheet, width, height);
             var detailDrawer = new DetailDrawer(panelSheet, width, height, _details);
 
@@ -62,7 +51,7 @@ namespace RectangularSheet.WF
             }
         }
 
-        private void buttonRemoveRow_Click(object sender, EventArgs e)
+        private void ButtonRemoveRow_Click(object sender, EventArgs e)
         {
             try
             {
@@ -73,13 +62,23 @@ namespace RectangularSheet.WF
                 var index = gridDetails.CurrentCell.RowIndex;
                 gridDetails.Rows.RemoveAt(index);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void gridDetails_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void TextBoxWidthSheet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TextBoxHeightSheet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void GridDetails_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress += new KeyPressEventHandler(Column_KeyPress);
         }
