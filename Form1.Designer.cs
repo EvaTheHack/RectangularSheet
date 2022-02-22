@@ -146,14 +146,14 @@ namespace RectangularSheet.WF
             this.panelSheet.Location = new System.Drawing.Point(412, 23);
             this.panelSheet.Name = "panelSheet";
             this.panelSheet.Padding = new System.Windows.Forms.Padding(10);
-            this.panelSheet.Size = new System.Drawing.Size(440, 404);
+            this.panelSheet.Size = new System.Drawing.Size(404, 404);
             this.panelSheet.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 449);
+            this.ClientSize = new System.Drawing.Size(832, 449);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panelSheet);
             this.Controls.Add(this.groupBoxDetails);
