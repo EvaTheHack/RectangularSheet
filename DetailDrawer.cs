@@ -56,6 +56,11 @@ namespace RectangularSheet.WF
         {
             for (int i = 0; i < Height; i++)
             {
+                var hasEmptyValueInRow = CheckIfRowHasEnoughWidth(i, _sheet, detailWidth);
+                if (!hasEmptyValueInRow)
+                {
+                    continue;
+                }
                 for (int j = 0; j < Width; j++)
                 {
                     if (_sheet[i, j] != 0)
@@ -196,7 +201,7 @@ namespace RectangularSheet.WF
             {
                 for (int i = 0; i < d.Count; i++)
                 {
-                    Fill(ref tempDetails, ref tempSheet, d.Width, d.Height);
+                    Fill(ref tempDetails, ref tempSheet, d.Width, d.Height, d.Count);
                 }
             }
 
@@ -211,10 +216,15 @@ namespace RectangularSheet.WF
         /// <summary>
         /// Fill temporary array
         /// </summary>
-        private void Fill(ref int tempDetails, ref int[,] tempSheet, int detailWidth, int detailHeight)
+        private void Fill(ref int tempDetails, ref int[,] tempSheet, int detailWidth, int detailHeight, int count)
         {
             for (int i = 0; i < Height; i++)
             {
+                var hasEmptyValueInRow = CheckIfRowHasEnoughWidth(i, tempSheet, detailWidth);
+                if(!hasEmptyValueInRow)
+                {
+                    continue;
+                }
                 for (int j = 0; j < Width; j++)
                 {
                     if (tempSheet[i, j] != 0)
@@ -231,17 +241,24 @@ namespace RectangularSheet.WF
                     {
                         FillHorizontally(i, j, tempSheet, detailWidth, detailHeight);
                         tempDetails++;
-                        break;
+                        return;
                     }
 
                     if (IsSquareFreeVertically(i, j, tempSheet, detailWidth, detailHeight))
                     {
                         FillVertically(i, j, tempSheet, detailWidth, detailHeight);
                         tempDetails++;
-                        break;
+                        return;
                     }
                 }
             }
+        }
+
+        private bool CheckIfRowHasEnoughWidth(int i, int[,] tempSheet, int detailWidth)
+        {
+            var row = Enumerable.Range(0, tempSheet.GetLength(1)).Select(x => tempSheet[i, x]);
+
+            return row.Count(x => x == 0) >= detailWidth;
         }
     }
 }
